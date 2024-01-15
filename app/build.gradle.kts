@@ -51,6 +51,21 @@ android {
         buildConfig = true
         viewBinding = true
     }
+
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
+
+    sourceSets {
+        val sharedTestDir = "src/sharedTest/resources"
+        getByName("test") {
+            resources.srcDirs(sharedTestDir)
+        }
+        getByName("androidTest") {
+            resources.srcDirs(sharedTestDir)
+        }
+    }
+
 }
 
 dependencies {
@@ -62,6 +77,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.androidx.annotation)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.gson)
 
     // Arch Components
     implementation(libs.lifecycle.livedata.ktx)
@@ -88,15 +104,18 @@ dependencies {
     // Image loading
     implementation(libs.picasso)
 
-/**-------------------------testing libs-------------------------**/
+    /**-------------------------testing libs-------------------------**/
     testImplementation(libs.junit)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.mockk)
+    testImplementation(libs.androidx.test.rules)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.ext.junit.ktx)
+    androidTestImplementation(libs.fragment.testing)
     androidTestImplementation(libs.assertj.core)
     androidTestImplementation(libs.hilt.android.testing)
-    kspTest(libs.hilt.compiler)
+    kaptTest(libs.hilt.compiler)
+    kaptAndroidTest(libs.hilt.compiler)
     androidTestImplementation(libs.espresso.core)
     implementation(libs.espresso.idling.resource)
     implementation(libs.espresso.contrib)

@@ -1,0 +1,107 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/f1AQhx6ZfGhPZFTVKgxG91PhEYc.jpg",
+      "genre_ids": [
+        36,
+        10752,
+        18
+      ],
+      "id": 753342,
+      "original_language": "en",
+      "original_title": "Napoleon",
+      "overview": "An epic that details the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey to power through the prism of his addictive, volatile relationship with his wife, Josephine.",
+      "popularity": 2141.546,
+      "poster_path": "/jE5o7y9K6pZtWNNMEw3IdpHuncR.jpg",
+      "release_date": "2023-11-22",
+      "title": "Napoleon",
+      "video": false,
+      "vote_average": 6.466,
+      "vote_count": 1119
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vdpE5pjJVql5aD6pnzRqlFmgxXf.jpg",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "id": 906126,
+      "original_language": "es",
+      "original_title": "La sociedad de la nieve",
+      "overview": "On October 13, 1972, Uruguayan Air Force Flight 571, chartered to take a rugby team to Chile, crashes into a glacier in the heart of the Andes.",
+      "popularity": 1499.994,
+      "poster_path": "/2e853FDVSIso600RqAMunPxiZjq.jpg",
+      "release_date": "2023-12-13",
+      "title": "Society of the Snow",
+      "video": false,
+      "vote_average": 8.045,
+      "vote_count": 784
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/iNgn9LP0iMuLSnWqolivcY3Y7F6.jpg",
+      "genre_ids": [
+        28,
+        12,
+        14
+      ],
+      "id": 572802,
+      "original_language": "en",
+      "original_title": "Aquaman and the Lost Kingdom",
+      "overview": "Black Manta, still driven by the need to avenge his father's death and wielding the power of the mythic Black Trident, will stop at nothing to take Aquaman down once and for all. To defeat him, Aquaman must turn to his imprisoned brother Orm, the former King of Atlantis, to forge an unlikely alliance in order to save the world from irreversible destruction.",
+      "popularity": 1213.101,
+      "poster_path": "/8xV47NDrjdZDpkVcCFqkdHa3T0C.jpg",
+      "release_date": "2023-12-20",
+      "title": "Aquaman and the Lost Kingdom",
+      "video": false,
+      "vote_average": 6.474,
+      "vote_count": 482
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ktHEdqmMWC1wdfPRMRCTZe2OISL.jpg",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "id": 1071215,
+      "original_language": "en",
+      "original_title": "Thanksgiving",
+      "overview": "After a Black Friday riot ends in tragedy, a mysterious Thanksgiving-inspired killer terrorizes Plymouth, Massachusetts - the birthplace of the holiday. Picking off residents one by one, what begins as random revenge killings are soon revealed to be part of a larger, sinister holiday plan.",
+      "popularity": 1085.668,
+      "poster_path": "/f5f3TEVst1nHHyqgn7Z3tlwnBIH.jpg",
+      "release_date": "2023-11-16",
+      "title": "Thanksgiving",
+      "video": false,
+      "vote_average": 6.699,
+      "vote_count": 514
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dvNrgldueQciabkYmlCnyhmaPoO.jpg",
+      "genre_ids": [
+        28,
+        9648,
+        53,
+        27
+      ],
+      "id": 899445,
+      "original_language": "en",
+      "original_title": "Deep Fear",
+      "overview": "A solo trip aboard a yacht takes a terrifying turn when a woman encounters three drug traffickers clinging to the shattered remains of a boat. They soon force her to dive into shark-infested waters to retrieve kilos of cocaine from the sunken wreck.",
+      "popularity": 884.386,
+      "poster_path": "/ruujFw7J0Nd3BSjbN3QODym82Qs.jpg",
+      "release_date": "2023-10-18",
+      "title": "Deep Fear",
+      "video": false,
+      "vote_average": 4.786,
+      "vote_count": 35
+    }
+  ],
+  "total_pages": 42296,
+  "total_results": 845902
+}
