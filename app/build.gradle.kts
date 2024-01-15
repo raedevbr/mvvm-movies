@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kapt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
@@ -22,8 +23,8 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner = "com.raedevbr.movies.CustomTestRunner"
         buildConfigField("String", "API_KEY", "\"${appProperties["API_KEY"]}\"")
     }
 
@@ -53,35 +54,52 @@ android {
 }
 
 dependencies {
-
+    // Core
     implementation(libs.core.ktx)
+    implementation(libs.kotlin.stdlib)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation(libs.androidx.annotation)
     implementation(libs.kotlinx.coroutines.android)
 
+    // Arch Components
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
 
+    // Navigation Component
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
 
+    // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
+    // Dagger Hilt for DI
     implementation(libs.hilt.android.core)
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
 
+    // Retrofit for network requests
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter)
     implementation(libs.okhttp3.logging.interceptor)
 
-    implementation(libs.glide)
+    // Image loading
+    implementation(libs.picasso)
 
-
+/**-------------------------testing libs-------------------------**/
     testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit.ktx)
+    androidTestImplementation(libs.assertj.core)
+    androidTestImplementation(libs.hilt.android.testing)
+    kspTest(libs.hilt.compiler)
     androidTestImplementation(libs.espresso.core)
+    implementation(libs.espresso.idling.resource)
+    implementation(libs.espresso.contrib)
+    implementation(libs.arch.core.testing)
+    implementation(libs.kotlinx.coroutines.test)
 }

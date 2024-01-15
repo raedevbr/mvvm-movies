@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class Movies(
    @SerializedName("results")
-    val moviesList: ArrayList<MoviesItem>
+    val moviesList: MutableList<MoviesItem>
 )

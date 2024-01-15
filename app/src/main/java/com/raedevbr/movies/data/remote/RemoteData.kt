@@ -15,8 +15,8 @@ class RemoteData @Inject constructor(private val serviceGenerator: ServiceGenera
     override suspend fun requestPopularMovies(): Resource<Movies> {
         val moviesService = serviceGenerator.createService(MoviesService::class.java)
         return when (val response = processCall(moviesService::fetchPopularMovies)) {
-            is List<*> -> {
-                Resource.Success(data = Movies(response as ArrayList<MoviesItem>))
+            is Movies -> {
+                Resource.Success(data = response)
             }
             else -> {
                 Resource.DataError(errorCode = response as Int)
@@ -37,7 +37,7 @@ class RemoteData @Inject constructor(private val serviceGenerator: ServiceGenera
             val response = responseCall.invoke()
             val responseCode = response.code()
             if (response.isSuccessful) {
-                response.body()
+                response.body() as? Movies ?: -1
             } else {
                 responseCode
             }

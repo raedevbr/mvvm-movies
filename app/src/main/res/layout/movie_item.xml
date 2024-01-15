@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_movie_item"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/image_movie_width"
+    android:layout_height="@dimen/image_movie_height"
+    android:clickable="true"
+    android:focusable="true"
     app:cardElevation="@dimen/space_1x"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="false"
+    android:backgroundTint="@color/colorBackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/space_8x">
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/space_1x"
+        >
 
         <ImageView
             android:id="@+id/iv_movie_item_image"
-            android:layout_width="@dimen/image_view_width"
-            android:layout_height="@dimen/image_view_height"
-            android:background="@color/color_background_icon"
-            app:srcCompat="@drawable/ic_downloading"
+            android:layout_width="@dimen/image_movie_width"
+            android:layout_height="@dimen/image_movie_height"
+            tools:background="@color/color_background_icon"
+            tools:srcCompat="@drawable/ic_downloading"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

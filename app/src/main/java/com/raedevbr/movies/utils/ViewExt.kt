@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
 import com.raedevbr.movies.R
+import com.squareup.picasso.Picasso
 
 fun View.showKeyboard() {
     (this.context.getSystemService(Service.INPUT_METHOD_SERVICE) as? InputMethodManager)
@@ -54,5 +54,5 @@ fun View.showToast(
 }
 
 fun ImageView.loadImage(url: String) =
-    Glide.with(this).load(url).placeholder(R.drawable.ic_downloading)
-        .error(R.drawable.ic_downloading).into(this)
+    Picasso.get().load(url).placeholder(R.drawable.ic_downloading).error(R.drawable.ic_error)
+        .into(this)
