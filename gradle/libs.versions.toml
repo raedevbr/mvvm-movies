@@ -22,12 +22,10 @@ loggingInterceptor = "4.9.0"
 picasso = "2.71828"
 junitJupiter = "5.7.0"
 androidxTestExtJunitKtx = "1.1.5"
-assertjCore = "3.19.0"
 archCoreTesting = "2.2.0"
-mockk = "1.10.5"
+mockk = "1.13.5"
 coroutinesTest = "1.7.1"
 espresso = "3.5.1"
-espressoIntents = "3.3.0"
 fragmentTesting = "1.6.2"
 androidxTestRules = "1.2.0"
 
@@ -58,7 +56,6 @@ gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junitJupiter" }
 androidx-test-ext-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "androidxTestExtJunitKtx" }
-assertj-core = { group = "org.assertj", name = "assertj-core", version.ref = "assertjCore" }
 arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCoreTesting" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
@@ -67,7 +64,6 @@ espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib"
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 fragment-testing = { group = "androidx.fragment", name = "fragment-testing", version.ref = "fragmentTesting" }
 androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTestRules" }
-espresso-intents = { group = "androidx.test.espresso", name = "espresso-intents", version.ref = "espressoIntents" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -10,14 +10,28 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 import com.raedevbr.movies.BuildConfig
+import okhttp3.Interceptor
 
 private const val timeoutRead = 30 //In Seconds
 private const val timeoutConnect = 30 // In seconds
+private const val contentType = "Content-Type"
+private const val contentTypeValue = "application/json"
 
 @Singleton
 class ServiceGenerator @Inject constructor() {
     private val okHttpBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
     private val retrofit: Retrofit
+
+    private var headerInterceptor = Interceptor { chain ->
+        val original = chain.request()
+
+        val request = original.newBuilder()
+            .header(contentType, contentTypeValue)
+            .method(original.method, original.body)
+            .build()
+
+        chain.proceed(request)
+    }
 
     private val logger: HttpLoggingInterceptor
         get() {
@@ -29,6 +43,7 @@ class ServiceGenerator @Inject constructor() {
         }
 
     init {
+        okHttpBuilder.addInterceptor(headerInterceptor)
         okHttpBuilder.addInterceptor(logger)
         okHttpBuilder.connectTimeout(timeoutConnect.toLong(), TimeUnit.SECONDS)
         okHttpBuilder.readTimeout(timeoutRead.toLong(), TimeUnit.SECONDS)

@@ -77,7 +77,6 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.androidx.annotation)
     implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.gson)
 
     // Arch Components
     implementation(libs.lifecycle.livedata.ktx)
@@ -104,15 +103,14 @@ dependencies {
     // Image loading
     implementation(libs.picasso)
 
+    // Serializable and deserializable
+    implementation(libs.gson)
+
     /**-------------------------testing libs-------------------------**/
-    testImplementation(libs.junit)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.mockk)
     testImplementation(libs.androidx.test.rules)
-    androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.ext.junit.ktx)
-    androidTestImplementation(libs.fragment.testing)
-    androidTestImplementation(libs.assertj.core)
     androidTestImplementation(libs.hilt.android.testing)
     kaptTest(libs.hilt.compiler)
     kaptAndroidTest(libs.hilt.compiler)
