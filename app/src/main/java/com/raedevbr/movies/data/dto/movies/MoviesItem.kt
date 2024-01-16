@@ -1,40 +1,54 @@
 package com.raedevbr.movies.data.dto.movies
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
 import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+@Entity(tableName = "movies")
 data class MoviesItem(
     @SerializedName("id")
-    val id: Long = 0,
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Long = 0,
 
     @SerializedName("title")
-    val title: String = "",
+    @ColumnInfo(name = "title")
+    var title: String = "",
 
     @SerializedName("overview")
-    val description: String = "",
+    @ColumnInfo(name = "description")
+    var description: String = "",
 
     @SerializedName("poster_path")
-    val posterPath: String = "",
+    @ColumnInfo(name = "poster_path")
+    var posterPath: String = "",
 
     @SerializedName("backdrop_path")
-    val backdropPath: String = "",
+    @ColumnInfo(name = "backdrop_path")
+    var backdropPath: String = "",
 
     @SerializedName("release_date")
-    val releaseDate: String = "",
+    @ColumnInfo(name = "release_date")
+    var releaseDate: String = "",
 
     @SerializedName("vote_average")
-    val rating: Float = 0F,
+    @ColumnInfo(name = "rating")
+    var rating: Float = 0F,
 
     @SerializedName("popularity")
-    val popularity: Float = 0F,
+    @ColumnInfo(name = "popularity")
+    var popularity: Float = 0F,
 
     @SerializedName("original_title")
-    val originalTitle: String = "",
+    @ColumnInfo(name = "original_title")
+    var originalTitle: String = "",
 
     @Ignore
     @SerializedName("vote_count")
-    val voteCount: Int = 0
+    var voteCount: Int = 0
 ) : Parcelable

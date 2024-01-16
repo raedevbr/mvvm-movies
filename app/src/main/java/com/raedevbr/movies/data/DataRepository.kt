@@ -1,6 +1,7 @@
 package com.raedevbr.movies.data
 
 import com.raedevbr.movies.data.dto.movies.Movies
+import com.raedevbr.movies.data.dto.movies.MoviesItem
 import com.raedevbr.movies.data.local.LocalData
 import com.raedevbr.movies.data.remote.RemoteData
 import kotlinx.coroutines.flow.Flow
@@ -26,33 +27,30 @@ class DataRepository @Inject constructor(
         }.flowOn(ioDispatcher)
     }
 
-    override suspend fun addToFavorite(id: Long): Flow<Resource<Boolean>> {
-        return flow<Resource<Boolean>> {
-            localRepository.getCachedFavorites().let {
-                it.data?.toMutableSet()?.let { set ->
-                    val isAdded = set.add(id)
-                    if (isAdded) {
-                        emit(localRepository.cacheFavorites(set))
-                    } else {
-                        emit(Resource.Success(false))
-                    }
-                }
-                it.errorCode?.let { errorCode ->
-                    emit(Resource.DataError<Boolean>(errorCode))
-                }
-            }
+    override fun getCachedFavorites(): Flow<Resource<List<MoviesItem>>> {
+        return localRepository.getCachedFavorites()
+    }
+
+    override suspend fun addToFavorite(movie: MoviesItem): Flow<Resource<Boolean>> {
+        return flow {
+            val result = localRepository.cacheFavorites(movie)
+            val successData = result.data ?: false
+            emit(Resource.Success(data = successData))
         }.flowOn(ioDispatcher)
     }
 
     override suspend fun removeFromFavorite(id: Long): Flow<Resource<Boolean>> {
         return flow {
-            emit(localRepository.removeFromFavorites(id))
+            val result = localRepository.removeFromFavorites(id)
+            val successData = result.data ?: false
+            emit(Resource.Success(data = successData))
         }.flowOn(ioDispatcher)
     }
 
-    override suspend fun isFavorite(id: Long): Flow<Resource<Boolean>> {
+    override suspend fun isFavorite(id: Long): Flow<Resource<MoviesItem?>> {
         return flow {
-            emit(localRepository.isFavorite(id))
+         val result = localRepository.isFavorite(id)
+         emit(Resource.Success(data = result.data))
         }.flowOn(ioDispatcher)
     }
 }

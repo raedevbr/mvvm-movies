@@ -43,6 +43,26 @@ class MoviesViewModel @Inject constructor(
         }
     }
 
+    // TODO("replace this code with room upsert later")
+    fun addToFavorite(movie: MoviesItem) {
+        viewModelScope.launch {
+            wrapEspressoIdlingResource {
+                dataRepository.addToFavorite(movie).collect { result ->
+                    when (result) {
+                        is Resource.Success -> {
+                            val isSuccess = result.data ?: false
+                            if (isSuccess) {
+                                showToastPrivate.value = SingleEvent("added to favorites")
+                            }
+                        }
+
+                        else -> {}
+                    }
+                }
+            }
+        }
+    }
+
     fun openMovieDetails(movie: MoviesItem) {
         openMovieDetailsPrivate.value = SingleEvent(movie)
     }

@@ -19,12 +19,6 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideLocalRepository(): LocalData {
-        return LocalData()
-    }
-
-    @Provides
-    @Singleton
     fun provideCoroutineContext(): CoroutineContext {
         return Dispatchers.IO
     }

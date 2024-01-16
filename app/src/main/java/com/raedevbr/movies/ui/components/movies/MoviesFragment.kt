@@ -25,7 +25,8 @@ class MoviesFragment : BaseFragment() {
     private val binding by lazy { FragmentMoviesBinding.inflate(layoutInflater) }
     private val viewModel by viewModels<MoviesViewModel>()
     private val adapter by lazy { MoviesAdapter { movie ->
-
+        // TODO("replace this code later for navigate to MovieDetailsFragment")
+        viewModel.addToFavorite(movie)
     } }
 
     override fun onCreateView(
