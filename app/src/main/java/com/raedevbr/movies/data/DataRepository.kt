@@ -31,6 +31,10 @@ class DataRepository @Inject constructor(
         return localRepository.getCachedFavorites()
     }
 
+    override fun isFavorite(id: Long): Flow<Resource<MoviesItem?>> {
+        return localRepository.isFavorite(id)
+    }
+
     override suspend fun addToFavorite(movie: MoviesItem): Flow<Resource<Boolean>> {
         return flow {
             val result = localRepository.cacheFavorites(movie)
@@ -44,13 +48,6 @@ class DataRepository @Inject constructor(
             val result = localRepository.removeFromFavorites(id)
             val successData = result.data ?: false
             emit(Resource.Success(data = successData))
-        }.flowOn(ioDispatcher)
-    }
-
-    override suspend fun isFavorite(id: Long): Flow<Resource<MoviesItem?>> {
-        return flow {
-         val result = localRepository.isFavorite(id)
-         emit(Resource.Success(data = result.data))
         }.flowOn(ioDispatcher)
     }
 }

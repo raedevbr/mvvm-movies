@@ -2,6 +2,10 @@
     <string name="app_name">movies</string>
     <string name="title_movies">Movies</string>
     <string name="title_favorites">Favorites</string>
+    <string name="title_movie_details">Movie Details</string>
+
+    <string name="btn_is_not_favorite">Favorite</string>
+    <string name="btn_is_favorite">Favorited!</string>
 
     <string name="no_data">No Data</string>
     <string name="no_favorites">You have no favorites</string>

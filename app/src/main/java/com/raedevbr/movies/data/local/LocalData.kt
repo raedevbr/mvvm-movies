@@ -17,6 +17,12 @@ class LocalData @Inject constructor(
         }
     }
 
+    override fun isFavorite(id: Long): Flow<Resource<MoviesItem?>> {
+        return movieDao.getMovieById(id).map { cachedMovie ->
+            Resource.Success(data = cachedMovie)
+        }
+    }
+
     override suspend fun cacheFavorites(movie: MoviesItem): Resource<Boolean> {
         return try {
             movieDao.insertMovie(movie)
@@ -34,15 +40,5 @@ class LocalData @Inject constructor(
             Resource.DataError(errorCode = CACHE_ERROR)
         }
     }
-
-    override suspend fun isFavorite(id: Long): Resource<MoviesItem?> {
-        return try {
-            val movie = movieDao.getMovieById(id)
-            Resource.Success(data = movie)
-        } catch (e: Exception) {
-            Resource.DataError(errorCode = CACHE_ERROR)
-        }
-    }
-
 
 }

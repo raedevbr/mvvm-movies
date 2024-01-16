@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import com.raedevbr.movies.R
 import com.raedevbr.movies.data.Resource
 import com.raedevbr.movies.data.dto.movies.Movies
 import com.raedevbr.movies.databinding.FragmentMoviesBinding
@@ -25,8 +27,8 @@ class MoviesFragment : BaseFragment() {
     private val binding by lazy { FragmentMoviesBinding.inflate(layoutInflater) }
     private val viewModel by viewModels<MoviesViewModel>()
     private val adapter by lazy { MoviesAdapter { movie ->
-        // TODO("replace this code later for navigate to MovieDetailsFragment")
-        viewModel.addToFavorite(movie)
+        val args = Bundle().apply { putParcelable(ARGS_KEY, movie) }
+        findNavController().navigate(R.id.action_movies_to_movie_details, args)
     } }
 
     override fun onCreateView(
@@ -83,5 +85,7 @@ class MoviesFragment : BaseFragment() {
         observeToast(viewModel.showToast)
     }
 
-
+    companion object {
+        const val ARGS_KEY = "args_key"
+    }
 }

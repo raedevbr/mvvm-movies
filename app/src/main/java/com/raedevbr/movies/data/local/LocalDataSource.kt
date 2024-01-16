@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 internal interface LocalDataSource {
     fun getCachedFavorites(): Flow<Resource<List<MoviesItem>>>
+    fun isFavorite(id: Long): Flow<Resource<MoviesItem?>>
     suspend fun cacheFavorites(movie: MoviesItem): Resource<Boolean>
     suspend fun removeFromFavorites(id: Long): Resource<Boolean>
-    suspend fun isFavorite(id: Long): Resource<MoviesItem?>
 }

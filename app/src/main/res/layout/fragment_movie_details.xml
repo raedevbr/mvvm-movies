@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_movie_background_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/iv_movie_item_image"
+            android:layout_width="@dimen/image_movie_width"
+            android:layout_height="@dimen/image_movie_height"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            tools:background="@android:color/holo_blue_dark"
+            tools:srcCompat="@drawable/ic_downloading" />
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:background="@color/colorBackground"
+        app:layout_constraintTop_toBottomOf="@+id/fl_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_24x"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_32x"
+                android:textStyle="bold"
+                tools:text="iFood Program" />
+
+            <TextView
+                android:id="@+id/tv_movie_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16x"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/font_16x"
+                tools:text="01/16/2024"
+                android:layout_gravity="center"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_movie_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16x"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_16x"
+                android:layout_marginStart="@dimen/space_16x"
+                android:layout_marginEnd="@dimen/space_16x"
+                android:justificationMode="inter_word"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu magna ac sem dignissim sodales ac vel elit. Nulla volutpat nibh nec nulla fringilla, vitae lobortis eros bibendum. Donec bibendum nisi non consectetur vestibulum." />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_marginTop="@dimen/space_8x"
+                    android:layout_marginStart="@dimen/space_8x"
+                    android:background="?attr/selectableItemBackground"
+                    tools:text="Favorite"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/font_16x"
+                    android:textStyle="bold"
+                    android:theme="@style/Theme.MaterialComponents"
+                    app:icon="@drawable/ic_favorite_border"
+                    app:iconGravity="textStart"
+                    app:iconSize="@dimen/space_32x"
+                    app:iconTint="@android:color/white"
+                    app:rippleColor="@android:color/white" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
